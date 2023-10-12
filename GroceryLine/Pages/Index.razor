@@ -29,4 +29,10 @@
     {
         LinesService.AddCustomer(CustomerItemCountToAdd);
     }
+
+    protected override void OnParametersSet()
+    {
+        LinesService.ValueChanged += StateHasChanged;
+        base.OnParametersSet();
+    }
 }

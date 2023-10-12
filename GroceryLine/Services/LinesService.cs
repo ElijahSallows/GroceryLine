@@ -1,7 +1,6 @@
 ﻿namespace GroceryLine.Services
 {
     using GroceryLine.Models;
-    using System;
     using System.Timers;
 
     public class LinesService
@@ -11,7 +10,10 @@
         private int checkoutAmount = 1;
         private Timer CheckoutTimer { get; set; }
 
+        public Action? ValueChanged { get; set; }
+
         public List<Line> Lines { get; set; }
+
         public int CheckoutRateMilliseconds
         {
             get
@@ -106,9 +108,10 @@
             //CheckoutTimer.AutoReset = true;
         }
 
-        private async void CheckoutTimerElapsed(object? sender, ElapsedEventArgs e)
+        private void CheckoutTimerElapsed(object? sender, ElapsedEventArgs e)
         {
             TickAllLinesDown();
+            ValueChanged?.Invoke();  
         }
 
     }
