@@ -21,5 +21,10 @@
         {
             Customers.Add(customer);
         }
+
+        public void Add(List<Customer> customers)
+        {
+            Customers.AddRange(customers);
+        }
     }
 }

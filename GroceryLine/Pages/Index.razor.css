@@ -3,21 +3,30 @@
     height: 100vh;
     padding: 1% 5%;
     color: #ddd;
+    overflow-x: hidden;
+    /*overflow-x: s;*/
 }
 
 .settings-wrapper {
     width: 100%;
-    height: 5em;
+    /*height: 5em;*/
+    padding-block-end: 2em;
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-evenly;
 }
-/*
-.setting > label {
-    flex: 1 1 auto;
-    display: flex;
-    flex-flow: column nowrap;
 
-}*/
+.setting {
+    margin-inline: 3em;
+    margin-block-end: .5em;
+}
+
+.setting, .setting > label {
+    /*flex: 1 1 auto;*/
+    display: flex;
+    flex-flow: row nowrap;
+
+}
 
 .lines-container {
     width: 100%;
@@ -64,4 +73,8 @@
 
 ::deep .line-start-text {
     color: var(--line-color);
+}
+
+::deep *::selection {
+    background-color: #de701a;
 }

@@ -13,6 +13,7 @@
         public Action? ValueChanged { get; set; }
 
         public List<Line> Lines { get; set; }
+        public RandomService RandomService { get; }
 
         public int CheckoutRateMilliseconds
         {
@@ -53,9 +54,11 @@
             }
         }
 
-        public LinesService(List<Line> lines)
+        public LinesService(List<Line> lines, RandomService randomService)
         {
             Lines = lines;
+            RandomService = randomService;
+
             CheckoutTimer = new Timer();
             CheckoutTimer.Elapsed += CheckoutTimerElapsed;
             UpdateTimer();
@@ -71,6 +74,24 @@
             Customer customer = new(itemCount);
             Line line = FindLeastFullLine();
             line.Add(customer);
+        }
+
+        public void RemoveLine()
+        {
+            Lines.RemoveAt(Lines.Count - 1);
+        }
+
+        public void AddLine()
+        {
+            Lines.Add(new Line(new List<Customer>()));
+        }
+
+        public void AddCustomersToAllLines()
+        {
+            foreach (Line line in Lines)
+            {
+                line.Add(RandomService.GetRandomCustomers());
+            }
         }
 
         private Line FindLeastFullLine()

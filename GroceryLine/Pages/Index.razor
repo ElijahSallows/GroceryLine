@@ -10,28 +10,40 @@
     <aside class="settings-wrapper">
         <div class="setting">
             <label>
-                Lines Scanning?
+                Lines Scanning? 
                 <InputCheckbox @bind-Value=LinesService.IsScanningItems />
             </label>
         </div>
         <div class="setting">
             <label>
-                Items in Cart:
+                Items in Cart: 
                 <InputNumber @bind-Value=CustomerItemCountToAdd />
                 <button @onclick=OnCustomerAdd>Checkout</button>
             </label>
         </div>
+        <br />
         <div class="setting">
             <label>
-                Checkout Time in Milliseconds:
+                Checkout Time in Milliseconds: 
                 <InputNumber @bind-Value=LinesService.CheckoutRateMilliseconds />
             </label>
         </div>
         <div class="setting">
             <label>
-                Items Scanned at Once:
+                Items Scanned at Once: 
                 <InputNumber @bind-Value=LinesService.CheckoutAmount />
             </label>
+        </div>
+        <div class="setting">
+            <label>
+                Lines: 
+                <button class="oi oi-minus" @onclick=RemoveLine />
+                <button class="oi oi-plus" @onclick=AddLine />
+            </label>
+        </div>
+        <div class="setting">
+
+            <button @onclick=AddCustomersToAllLines>Generate More Customers</button>
         </div>
     </aside>
     <section class="lines-container">
@@ -56,5 +68,20 @@
     {
         LinesService.ValueChanged += StateHasChanged;
         base.OnParametersSet();
+    }
+
+    private void RemoveLine()
+    {
+        LinesService.RemoveLine();
+    }
+
+    private void AddLine()
+    {
+        LinesService.AddLine();
+    }
+
+    private void AddCustomersToAllLines()
+    {
+        LinesService.AddCustomersToAllLines();
     }
 }
