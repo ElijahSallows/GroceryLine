@@ -1,9 +1,23 @@
 ﻿@page "/"
+@inject LinesService LinesService;
+@using GroceryLine.Components
+@using GroceryLine.Models;
+@using GroceryLine.Services;
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<main class="display">
+    <aside class="settings-wrapper">
 
-Welcome to your new app.
+    </aside>
+    <section class="lines-container">
+        @foreach (Line line in Lines)
+        {
+            <LineComponent Line="line" />
+        }
+    </section>
+</main>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    private List<Line> Lines { get => LinesService.Lines; }
+}
