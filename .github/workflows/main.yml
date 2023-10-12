@@ -28,11 +28,11 @@ jobs:
         
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
-      run: dotnet publish ResumeBuilder.UI/ResumeBuilder.UI.csproj -c Release -o release --nologo
+      run: dotnet publish GroceryLine/GroceryLine.csproj -c Release -o release --nologo
     
-    # changes the base-tag in index.html from '/' to 'ResumeBuilder' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to ResumeBuilder
-      run: sed -i 's/<base href="\/" \/>/<base href="\/ResumeBuilder\/" \/>/g' release/wwwroot/index.html
+    # changes the base-tag in index.html from '/' to 'GroceryLine' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to GroceryLine
+      run: sed -i 's/<base href="\/" \/>/<base href="\/GroceryLine\/" \/>/g' release/wwwroot/index.html
     
     # copy index.html to 404.html to serve the same file when a file is not found
     #- name: copy index.html to 404.html
