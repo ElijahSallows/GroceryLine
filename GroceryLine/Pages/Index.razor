@@ -8,9 +8,31 @@
 
 <main class="display">
     <aside class="settings-wrapper">
-        <InputCheckbox @bind-Value=LinesService.IsScanningItems />
-        <InputNumber @bind-Value=CustomerItemCountToAdd />
-        <button @onclick=OnCustomerAdd />
+        <div class="setting">
+            <label>
+                Lines Scanning?
+                <InputCheckbox @bind-Value=LinesService.IsScanningItems />
+            </label>
+        </div>
+        <div class="setting">
+            <label>
+                Items in Cart:
+                <InputNumber @bind-Value=CustomerItemCountToAdd />
+                <button @onclick=OnCustomerAdd>Checkout</button>
+            </label>
+        </div>
+        <div class="setting">
+            <label>
+                Checkout Time in Milliseconds:
+                <InputNumber @bind-Value=LinesService.CheckoutRateMilliseconds />
+            </label>
+        </div>
+        <div class="setting">
+            <label>
+                Items Scanned at Once:
+                <InputNumber @bind-Value=LinesService.CheckoutAmount />
+            </label>
+        </div>
     </aside>
     <section class="lines-container">
         @foreach (Line line in Lines)

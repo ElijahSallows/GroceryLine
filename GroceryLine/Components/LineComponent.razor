@@ -1,11 +1,13 @@
 ﻿@using GroceryLine.Models;
 
 <div class="line">
-    <div class="line-start"></div>
+    <div class="line-start center-text">
+        <p class="item-count line-start-text">@Line.TotalItemCount</p>
+    </div>
 
     @foreach(Customer customer in Line.Customers)
     {
-        <div class="customer">
+        <div class="customer center-text">
             <p class="item-count">@customer.ItemCount</p>
         </div>
     }

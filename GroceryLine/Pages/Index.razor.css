@@ -2,12 +2,22 @@
     width: 100vw;
     height: 100vh;
     padding: 1% 5%;
+    color: #ddd;
 }
 
 .settings-wrapper {
     width: 100%;
     height: 5em;
+    display: flex;
+    justify-content: space-evenly;
 }
+/*
+.setting > label {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+
+}*/
 
 .lines-container {
     width: 100%;
@@ -31,6 +41,7 @@
     max-width: 3em;
     aspect-ratio: 1 / 1;
     border: 0.1em solid var(--line-color);
+    border-radius: 10%;
 }
 
 ::deep .customer {
@@ -38,7 +49,9 @@
     border-radius: 50%;
     background-color: var(--customer-color);
     flex: 1 1 3em;
+}
 
+::deep .center-text {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,4 +60,8 @@
 ::deep .item-count {
     color: var(--bg-color);
     margin: 0px;
+}
+
+::deep .line-start-text {
+    color: var(--line-color);
 }

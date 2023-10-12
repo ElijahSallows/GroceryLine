@@ -4,6 +4,8 @@
     --bg-color: #1b1d20;
     --customer-color: #8edea3;
     --line-color: #abe0d4;
+    color-scheme: dark;
+    color: #ddd;
 }
 
 html, body {
