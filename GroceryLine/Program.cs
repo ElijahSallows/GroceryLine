@@ -13,7 +13,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 await builder.Build().RunAsync();
 
-List<Line> GetRandomDefaultLines()
+static List<Line> GetRandomDefaultLines()
 {
     List<Line> lines = new();
 

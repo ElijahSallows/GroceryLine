@@ -8,7 +8,9 @@
 
 <main class="display">
     <aside class="settings-wrapper">
-
+        <InputCheckbox @bind-Value=LinesService.IsScanningItems />
+        <InputNumber @bind-Value=CustomerItemCountToAdd />
+        <button @onclick=OnCustomerAdd />
     </aside>
     <section class="lines-container">
         @foreach (Line line in Lines)
@@ -20,4 +22,11 @@
 
 @code {
     private List<Line> Lines { get => LinesService.Lines; }
+
+    private int CustomerItemCountToAdd { get; set; }
+
+    private void OnCustomerAdd()
+    {
+        LinesService.AddCustomer(CustomerItemCountToAdd);
+    }
 }
